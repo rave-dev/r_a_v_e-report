@@ -229,22 +229,22 @@ function rave_get_posts( $att, $feature = true ) {
 	return $posts;
 }
 /*
- * Shortcode to display featured post
+ * Shortcode to display newest non-featured post
  */
-function shortcode_featured( $atts ) {
+function shortcode_newest( $atts ) {
 	$att = shortcode_atts( array(
-		'num'	=> 2
+		'num'	=> 1
 	), $atts );
-	$posts = rave_get_posts( $att );
-	$html = display_featured( $posts );
+	$posts = rave_get_posts( $att, false );
+	$html = display_newest( $posts );
 	return $html;
 }
-add_shortcode( 'rave_featured', 'shortcode_featured' );
+add_shortcode( 'rave_newest', 'shortcode_newest' );
 
 /*
  * Display posts
  */
-function display_featured( $posts = array() ) {
+function display_newest( $posts = array() ) {
 	$html = '';
 	foreach ( $posts as $article ) {
 		$html .= '<section class="widget widget-featured">';

@@ -9915,10 +9915,15 @@ html, body {
   border-top: 2px solid #3D2F1F;
 }
 /* line 111, sass/site/primary/_posts-and-pages.scss */
+.home #primary article .tagline {
+  margin: 1em 0;
+  font-style: italic;
+}
+/* line 116, sass/site/primary/_posts-and-pages.scss */
 .home #primary article .entry-title {
   margin: 0;
 }
-/* line 115, sass/site/primary/_posts-and-pages.scss */
+/* line 120, sass/site/primary/_posts-and-pages.scss */
 .home #primary article .entry-title a {
   text-decoration: none;
 }

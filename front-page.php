@@ -39,7 +39,7 @@ echo $banner_html;
 				'posts_per_page'			=> 1,
 				'order'					=> 'DESC',
 				'orderby'				=> 'date',
-				'post__not_in'			=> get_option( 'sticky_posts' )
+				'post__in'			=> get_option( 'sticky_posts' )
 			);
 			$the_query = new WP_Query( $args );
 			if ( $the_query->have_posts() ) :
@@ -84,9 +84,9 @@ echo $banner_html;
 		</div><!-- #primary -->
 
 		<aside id="tertiary" class="widget-area col-sm-6 col-md-3" role="complementary">
-			<?php echo do_shortcode( '[rave_featured]' ); ?>
+			<?php echo do_shortcode( '[rave_newest]' ); ?>
 			<?php dynamic_sidebar( 'sidebar-index' ); ?>
-		</aside><!-- #secondary -->
+		</aside><!-- #tertiary -->
 
 		<?php get_sidebar( 'sidebar' ); ?>
 

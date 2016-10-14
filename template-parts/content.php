@@ -16,6 +16,13 @@ if ( ! is_single() && ! is_sticky() && is_home() ) {
 <article id="post-<?php the_ID(); ?>" <?php post_class( $class ); ?>>
 	<header class="entry-header">
 		<?php
+		if ( is_front_page() ) {
+			$tagline = get_post_meta( get_the_ID(), 'rave_tagline', true );
+			if ( $tagline ) {
+				echo "<p class='tagline'>{$tagline}</p>";
+			}
+		}
+
 		if ( is_single() ) :
 			//the_title( '<h1 class="entry-title">', '</h1>' );
 		else :
@@ -45,7 +52,9 @@ if ( ! is_single() && ! is_sticky() && is_home() ) {
 		?>
 	</div><!-- .entry-content -->
 
-	<footer class="entry-footer">
-		<?php r_a_v_e_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
+	<?php if ( is_single() ) { ?>
+		<footer class="entry-footer">
+			<?php r_a_v_e_entry_footer(); ?>
+		</footer><!-- .entry-footer -->
+	<?php } ?>
 </article><!-- #post-## -->
